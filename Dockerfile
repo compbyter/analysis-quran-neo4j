@@ -16,7 +16,6 @@ COPY node.csv /import/node.csv
 
 COPY relation.csv /import/relation.csv
 
-COPY server-logs.xml /var/lib/neo4j/conf/server-logs.xml
 
  
 # Run the database import command
@@ -38,6 +37,13 @@ ENV NEO4J_AUTH=neo4j/testtest
 # Use the preloaded database from the import stage
 
 COPY --from=neo4j-import /data /data
+
+COPY server-logs.xml /var/lib/neo4j/conf/server-logs.xml
+
+COPY user-logs.xml /var/lib/neo4j/conf/server-logs.xml
+
+COPY neo4j.conf /var/lib/neo4j/conf/neo4j.conf
+
  
 # Expose Neo4j ports
 
