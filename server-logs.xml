@@ -18,16 +18,16 @@
     Please consult https://logging.apache.org/log4j/2.x/manual/configuration.html for instructions and
     available configuration options.
 -->
-<Configuration status="ERROR" monitorInterval="30" packages="org.neo4j.logging.log4j"> \
-    <Appenders> \
+<Configuration status="ERROR" monitorInterval="30" packages="org.neo4j.logging.log4j"> 
+    <Appenders> 
         <!-- Default debug.log, please keep -->
-        <RollingRandomAccessFile name="DebugLog" fileName="${config:server.directories.logs}/debug.log" \
-                                 filePattern="$${config:server.directories.logs}/debug.log.%02i"> \
-            <Neo4jDebugLogLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSSZ}{GMT+0} %-5p [%c{1.}] %m%n"/> \
-            <Policies> \
-                <SizeBasedTriggeringPolicy size="20 MB"/> \
+        <RollingRandomAccessFile name="DebugLog" fileName="${config:server.directories.logs}/debug.log" 
+                                 filePattern="$${config:server.directories.logs}/debug.log.%02i"> 
+            <Neo4jDebugLogLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSSZ}{GMT+0} %-5p [%c{1.}] %m%n"/> 
+            <Policies> 
+                <SizeBasedTriggeringPolicy size="20 MB"/> 
             </Policies>
-            <DefaultRolloverStrategy fileIndex="min" max="7"/> \
+            <DefaultRolloverStrategy fileIndex="min" max="7"/> 
         </RollingRandomAccessFile>
 
         <RollingRandomAccessFile name="HttpLog" fileName="${config:server.directories.logs}/http.log"
@@ -58,16 +58,16 @@
         </RollingRandomAccessFile>
     </Appenders>
 
-    <Loggers> \
+    <Loggers> 
         <!-- Log levels. One of DEBUG, INFO, WARN, ERROR or OFF -->
 
         <!-- The debug log is used as the root logger to catch everything -->
-        <Root level="DEBUG"> \
+        <Root level="DEBUG"> 
             <AppenderRef ref="DebugLog"/> <!-- Keep this -->
         </Root>
 
         <!-- The query log, must be named "QueryLogger" -->
-        <Logger name="QueryLogger" level="DEBUG" additivity="false"> \
+        <Logger name="QueryLogger" level="DEBUG" additivity="false"> 
             <AppenderRef ref="QueryLog"/>
         </Logger>
 
