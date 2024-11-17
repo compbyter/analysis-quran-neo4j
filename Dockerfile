@@ -15,6 +15,9 @@ RUN mkdir -p /data /import
 COPY node.csv /import/node.csv
 
 COPY relation.csv /import/relation.csv
+
+COPY server-logs.xml /var/lib/neo4j/conf/server-logs.xml
+
  
 # Run the database import command
 
